@@ -1,0 +1,3 @@
+/home/quectel/Projects/mcaudioplayer/CMakeFiles/mcaudioplayer.dir
+/home/quectel/Projects/mcaudioplayer/CMakeFiles/edit_cache.dir
+/home/quectel/Projects/mcaudioplayer/CMakeFiles/rebuild_cache.dir

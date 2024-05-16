@@ -1,0 +1,33 @@
+CC = g++
+#-std=c++11
+#-I/usr/include/ -I/usr/include/SFML/ -I/usr/include/SFML/Network/ 
+CFLAGS   = -Wall -Wextra -g -std=c++14
+LDFLAGS  = -pthread -lpthread
+LDFLAGS += -lsfml-network -lsfml-system -lsfml-window
+#-L/usr/lib/ -L/usr/lib/x86_64-linux-gnu/
+
+SRC_DIR = src
+INC_DIR = include
+BUILD_DIR = build
+TARGET = mcaudioplayer
+
+SRCS := $(wildcard $(SRC_DIR)/*.cpp)
+OBJS := $(SRCS:$(SRC_DIR)/%.cpp=$(BUILD_DIR)/%.o)
+DEPS := $(OBJS:.o=.d)
+
+INC_DIRS := -I$(INC_DIR)
+
+$(BUILD_DIR)/$(TARGET): $(OBJS)
+	$(CC) $(LDFLAGS) $(OBJS) -o $@
+
+-include $(DEPS)
+
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
+	@mkdir -p $(@D)
+	$(CC) $(CFLAGS) $(INC_DIRS) -MMD -c $< -o $@
+
+.PHONY: clean
+clean:
+	rm -rf $(BUILD_DIR)
+
+
