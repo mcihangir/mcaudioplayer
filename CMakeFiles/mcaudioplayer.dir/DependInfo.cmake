@@ -10,7 +10,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/quectel/Projects/mcaudioplayer/src/commander.cpp" "CMakeFiles/mcaudioplayer.dir/src/commander.cpp.o" "gcc" "CMakeFiles/mcaudioplayer.dir/src/commander.cpp.o.d"
   "/home/quectel/Projects/mcaudioplayer/src/mcaudioplayer.cpp" "CMakeFiles/mcaudioplayer.dir/src/mcaudioplayer.cpp.o" "gcc" "CMakeFiles/mcaudioplayer.dir/src/mcaudioplayer.cpp.o.d"
-  "/home/quectel/Projects/mcaudioplayer/src/tcpserver.cpp" "CMakeFiles/mcaudioplayer.dir/src/tcpserver.cpp.o" "gcc" "CMakeFiles/mcaudioplayer.dir/src/tcpserver.cpp.o.d"
   )
 
 # Targets to which this target links.

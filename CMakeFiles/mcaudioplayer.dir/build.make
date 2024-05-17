@@ -69,24 +69,10 @@ include CMakeFiles/mcaudioplayer.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/mcaudioplayer.dir/flags.make
 
-CMakeFiles/mcaudioplayer.dir/src/tcpserver.cpp.o: CMakeFiles/mcaudioplayer.dir/flags.make
-CMakeFiles/mcaudioplayer.dir/src/tcpserver.cpp.o: src/tcpserver.cpp
-CMakeFiles/mcaudioplayer.dir/src/tcpserver.cpp.o: CMakeFiles/mcaudioplayer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/quectel/Projects/mcaudioplayer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mcaudioplayer.dir/src/tcpserver.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mcaudioplayer.dir/src/tcpserver.cpp.o -MF CMakeFiles/mcaudioplayer.dir/src/tcpserver.cpp.o.d -o CMakeFiles/mcaudioplayer.dir/src/tcpserver.cpp.o -c /home/quectel/Projects/mcaudioplayer/src/tcpserver.cpp
-
-CMakeFiles/mcaudioplayer.dir/src/tcpserver.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mcaudioplayer.dir/src/tcpserver.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/quectel/Projects/mcaudioplayer/src/tcpserver.cpp > CMakeFiles/mcaudioplayer.dir/src/tcpserver.cpp.i
-
-CMakeFiles/mcaudioplayer.dir/src/tcpserver.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mcaudioplayer.dir/src/tcpserver.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/quectel/Projects/mcaudioplayer/src/tcpserver.cpp -o CMakeFiles/mcaudioplayer.dir/src/tcpserver.cpp.s
-
 CMakeFiles/mcaudioplayer.dir/src/mcaudioplayer.cpp.o: CMakeFiles/mcaudioplayer.dir/flags.make
 CMakeFiles/mcaudioplayer.dir/src/mcaudioplayer.cpp.o: src/mcaudioplayer.cpp
 CMakeFiles/mcaudioplayer.dir/src/mcaudioplayer.cpp.o: CMakeFiles/mcaudioplayer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/quectel/Projects/mcaudioplayer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mcaudioplayer.dir/src/mcaudioplayer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/quectel/Projects/mcaudioplayer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mcaudioplayer.dir/src/mcaudioplayer.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mcaudioplayer.dir/src/mcaudioplayer.cpp.o -MF CMakeFiles/mcaudioplayer.dir/src/mcaudioplayer.cpp.o.d -o CMakeFiles/mcaudioplayer.dir/src/mcaudioplayer.cpp.o -c /home/quectel/Projects/mcaudioplayer/src/mcaudioplayer.cpp
 
 CMakeFiles/mcaudioplayer.dir/src/mcaudioplayer.cpp.i: cmake_force
@@ -100,7 +86,7 @@ CMakeFiles/mcaudioplayer.dir/src/mcaudioplayer.cpp.s: cmake_force
 CMakeFiles/mcaudioplayer.dir/src/commander.cpp.o: CMakeFiles/mcaudioplayer.dir/flags.make
 CMakeFiles/mcaudioplayer.dir/src/commander.cpp.o: src/commander.cpp
 CMakeFiles/mcaudioplayer.dir/src/commander.cpp.o: CMakeFiles/mcaudioplayer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/quectel/Projects/mcaudioplayer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/mcaudioplayer.dir/src/commander.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/quectel/Projects/mcaudioplayer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mcaudioplayer.dir/src/commander.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mcaudioplayer.dir/src/commander.cpp.o -MF CMakeFiles/mcaudioplayer.dir/src/commander.cpp.o.d -o CMakeFiles/mcaudioplayer.dir/src/commander.cpp.o -c /home/quectel/Projects/mcaudioplayer/src/commander.cpp
 
 CMakeFiles/mcaudioplayer.dir/src/commander.cpp.i: cmake_force
@@ -113,19 +99,17 @@ CMakeFiles/mcaudioplayer.dir/src/commander.cpp.s: cmake_force
 
 # Object files for target mcaudioplayer
 mcaudioplayer_OBJECTS = \
-"CMakeFiles/mcaudioplayer.dir/src/tcpserver.cpp.o" \
 "CMakeFiles/mcaudioplayer.dir/src/mcaudioplayer.cpp.o" \
 "CMakeFiles/mcaudioplayer.dir/src/commander.cpp.o"
 
 # External object files for target mcaudioplayer
 mcaudioplayer_EXTERNAL_OBJECTS =
 
-mcaudioplayer: CMakeFiles/mcaudioplayer.dir/src/tcpserver.cpp.o
 mcaudioplayer: CMakeFiles/mcaudioplayer.dir/src/mcaudioplayer.cpp.o
 mcaudioplayer: CMakeFiles/mcaudioplayer.dir/src/commander.cpp.o
 mcaudioplayer: CMakeFiles/mcaudioplayer.dir/build.make
 mcaudioplayer: CMakeFiles/mcaudioplayer.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/quectel/Projects/mcaudioplayer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable mcaudioplayer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/quectel/Projects/mcaudioplayer/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable mcaudioplayer"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mcaudioplayer.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -5,36 +5,55 @@
     \date 18.05.2024
     \copyright NA
 */
+//#include <conio.h>
 #include "common.h" 
-#include "tcpserver.h" 
 #include "commander.h" 
-#include <SFML/Audio.hpp>
 
+#include <termios.h>
+#include <unistd.h>
+#include <iostream>
+
+#include <SFML/Window/Keyboard.hpp>
+//#include <SFML/Window/Event.hpp>
 
 using namespace std;
 
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
-static void * commandHandler(void * arg)
+static void * keyReader(void * arg)
 {
-    bool flag = true;
+    struct Commander *commander = (Commander *)arg;
 
-	pthread_detach(pthread_self());
+    DEBUG_PRINT("Press e to exit.\n");
+    DEBUG_PRINT("Press UP and DOWN arrows to set the volume.\n");
 
-   	pthread_exit(NULL);
+    while(1){        
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+        {
+            std::cout << "\033[2J\033[H"; // Clear the terminal line
+            commander->data.sound.setVolume((commander->data.sound.getVolume() + 10)>100?100:(commander->data.sound.getVolume() + 10));            
+            DEBUG_PRINT("Volume: %f\n", commander->data.sound.getVolume());
+            usleep(100000);
+        } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+            std::cout << "\033[2J\033[H"; // Clear the terminal line
+            commander->data.sound.setVolume((commander->data.sound.getVolume() - 10)<0?0:(commander->data.sound.getVolume() - 10));            
+            DEBUG_PRINT("Volume: %f\n", commander->data.sound.getVolume());
+            usleep(100000);
+        } else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
+            commander->stop();
+            break;
+        }
+        usleep(1000);
+    }
+
+    pthread_exit(NULL);
     return 0;
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
-int main(int argc, char* argv[]) {
-    cout << "Arg count: " << argc << std::endl;
+int main(int argc, char* argv[]) 
+{
 
-    for (int i = 0; i < argc; ++i) {
-        std::cout << "Arg " << i << ": " << argv[i] << std::endl;
-    }
-    int val = 12;
-    val++;
-    DEBUG_PRINT("test :%d", val);
-
-    //=====================================================
 	if(argc < 2) {
         cerr << "ERROR: Usage: ./mcaudioplayer auido_file [TCP port]" << endl;
 		return 0;
@@ -44,44 +63,10 @@ int main(int argc, char* argv[]) {
 		port = atoi(argv[2]);
     }
 
-
-    sf::SoundBuffer buffer;
-    
-    if (!buffer.loadFromFile(argv[1])) {
-        cerr << "ERROR: Usage: ./mcaudioplayer auido_file [TCP port]" << endl;
-        cerr << "ERROR: Please enter the path of the audio file like /home/mypc/test.wav" << endl;
-        return -1;
-    }
-    sf::Sound sound;
-    sound.setBuffer(buffer);
-
     Commander commander;
-    commander.start(port);
-
     pthread_t threadID;
-    if(pthread_create(&threadID, NULL, commandHandler, (void *)&sound) < 0){
-        cerr << "ERROR: commandHandler cannot be created!" << endl;
-		return -1;
-	}
-
-
-    while(1){
-
-        if(commander.data.cmd == 'p'){
-            sound.play();
-            commander.data.cmd  = ' ';
-        }
-        if(commander.data.cmd == 's'){
-            sound.stop();
-            commander.data.cmd  = ' ';
-        }
-        if(commander.data.cmd == 'q'){
-            break;
-        }
-        sleep(1);
-        //DEBUG_PRINT("waiting for data\n");
-    }
-
-    commander.stop();
+    pthread_create(&threadID, NULL, keyReader, (void *)&commander);
+    commander.start(argv[1], port);
+    DEBUG_PRINT("Good bye!\n");
     return 0;
 }

@@ -13,7 +13,6 @@ set(INC_DIR ${CMAKE_SOURCE_DIR}/include)
 set(EXECUTABLE_NAME mcaudioplayer)
 
 set(SOURCES
-    ${SRC_DIR}/tcpserver.cpp
     ${SRC_DIR}/mcaudioplayer.cpp
     ${SRC_DIR}/commander.cpp
 )
@@ -24,7 +23,7 @@ set(SOURCES
 
 add_executable(${EXECUTABLE_NAME} ${SOURCES})
 
-target_link_libraries(${EXECUTABLE_NAME} sfml-network sfml-audio pthread)
+target_link_libraries(${EXECUTABLE_NAME} pthread sfml-network sfml-audio sfml-window)
 target_include_directories(${EXECUTABLE_NAME}
     PRIVATE ${INC_DIR}
 )

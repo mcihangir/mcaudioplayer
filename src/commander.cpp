@@ -12,27 +12,37 @@ void * Commander::connectionHandler(void * arg)
 {
     bool flag = true;
 
-    struct commander_data *sockData = (struct commander_data*)arg;
+    struct commander_data *dt = (struct commander_data*)arg;
 	pthread_detach(pthread_self());
 
     while(flag){
-        if(sockData->numClient == 0){
-            cout << "Waiting for a connection..." << endl;
-            if( sockData->listener.accept(sockData->socket) != sf::Socket::Done ){
+        if(dt->numClient == 0){
+            DEBUG_PRINT("Waiting for a connection...\n");
+            if( dt->listener.accept(dt->socket) != sf::Socket::Done ){
                 cerr << "ERROR: connection cannot be accepted" << endl;
             } else {
-                sockData->numClient++;
+                dt->numClient++;
             }
         }
 
-        if(sockData->numClient > 0){
+        if(dt->numClient > 0){
             std::size_t recSize;
-            //char dt;
-            if (sockData->socket.receive(&sockData->cmd, sizeof(sockData->cmd), recSize) == sf::Socket::Done){
-            //if (sockData->socket.receive(&dt, sizeof(sockData->cmd), recSize) == sf::Socket::Done){
-                DEBUG_PRINT("Received data: %c\n", sockData->cmd);
-                if(sockData->cmd == 'q'){
-                    flag = false;
+            if (dt->socket.receive(&dt->cmd, sizeof(dt->cmd), recSize) == sf::Socket::Done){
+                DEBUG_PRINT("Received data: %c\n", dt->cmd);
+                switch(dt->cmd){
+                    case 'p':
+                        dt->sound.play();
+                        dt->cmd = '\0';
+                    break;
+                    case 's':
+                        dt->sound.stop();
+                        dt->cmd = '\0';
+                    break;
+                    case 'q':
+                        flag = false;
+                    break;
+                    default:
+                    break;
                 }
             }else {
                 if(recSize == 0){
@@ -40,44 +50,58 @@ void * Commander::connectionHandler(void * arg)
                 }else {
                     cerr << "ERROR: cannot read the data!" << endl;
                 }
-                sockData->socket.disconnect();
-                sockData->numClient = 0;
+                dt->socket.disconnect();
+                dt->numClient = 0;
             }
         }
     }
+                
+    dt->sound.stop();
+    dt->socket.disconnect();
+    dt->listener.close();
 
-    sockData->socket.disconnect();
-    sockData->listener.close();
-
-    DEBUG_PRINT("server disconnected\n");
+    DEBUG_PRINT("Server is disconnected\n");
    	pthread_exit(NULL);
     return 0;
 }
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
-int Commander::start(int port)
+int Commander::start(char* file, int port)
 {
     if( port<0 || port > 65535){
         cerr << "ERROR: wrong port number!" << endl;
         return -1;
     }
+    if (!data.buffer.loadFromFile(file)) {
+        cerr << "ERROR: Usage: ./mcaudioplayer auido_file [TCP port]" << endl;
+        cerr << "ERROR: Please enter the path of the audio file like /home/mypc/test.wav" << endl;
+        return -1;
+    }
+
+    data.sound.setBuffer(data.buffer);
+
     //bind a listener to the port
     if(data.listener.listen(port) != sf::Socket::Done){
         cerr << "ERROR: listener cannot be started" << endl;
         return -1;
     }
     data.numClient = 0;
-    data.cmd = ' ';
-    pthread_t threadID;
-    if(pthread_create(&threadID, NULL, connectionHandler, (void *)&data) < 0){
+    data.cmd = '\0';
+    //pthread_t threadID;
+    if(pthread_create(&data.threadID, NULL, connectionHandler, (void *)&data) < 0){
         data.listener.close();
         cerr << "ERROR: connectionHandler cannot be created!" << endl;
 		return -1;
 	}
+
+    pthread_join(data.threadID, nullptr);
     return 0;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 void Commander::stop() 
 {
+    pthread_cancel(data.threadID); // Send cancellation request
+    data.sound.stop();
+    data.socket.disconnect();
     data.listener.close();
 }

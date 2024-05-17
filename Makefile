@@ -177,30 +177,6 @@ src/mcaudioplayer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/mcaudioplayer.dir/build.make CMakeFiles/mcaudioplayer.dir/src/mcaudioplayer.cpp.s
 .PHONY : src/mcaudioplayer.cpp.s
 
-src/tcpserver.o: src/tcpserver.cpp.o
-.PHONY : src/tcpserver.o
-
-# target to build an object file
-src/tcpserver.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mcaudioplayer.dir/build.make CMakeFiles/mcaudioplayer.dir/src/tcpserver.cpp.o
-.PHONY : src/tcpserver.cpp.o
-
-src/tcpserver.i: src/tcpserver.cpp.i
-.PHONY : src/tcpserver.i
-
-# target to preprocess a source file
-src/tcpserver.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mcaudioplayer.dir/build.make CMakeFiles/mcaudioplayer.dir/src/tcpserver.cpp.i
-.PHONY : src/tcpserver.cpp.i
-
-src/tcpserver.s: src/tcpserver.cpp.s
-.PHONY : src/tcpserver.s
-
-# target to generate assembly for a file
-src/tcpserver.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/mcaudioplayer.dir/build.make CMakeFiles/mcaudioplayer.dir/src/tcpserver.cpp.s
-.PHONY : src/tcpserver.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -216,9 +192,6 @@ help:
 	@echo "... src/mcaudioplayer.o"
 	@echo "... src/mcaudioplayer.i"
 	@echo "... src/mcaudioplayer.s"
-	@echo "... src/tcpserver.o"
-	@echo "... src/tcpserver.i"
-	@echo "... src/tcpserver.s"
 .PHONY : help
 
 

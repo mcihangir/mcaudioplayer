@@ -10,12 +10,14 @@
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include <pthread.h>
 #include <thread>
-#include <vector> 
+//#include <vector> 
 
 
 #include <SFML/Network.hpp>
+#include <SFML/Audio.hpp>
 
 
 using namespace std;
@@ -23,14 +25,16 @@ using namespace std;
 struct commander_data{
 	sf::TcpListener listener;
     sf::TcpSocket socket;
+	sf::SoundBuffer buffer;
+	sf::Sound sound;
 	int numClient;
 	char cmd;	
-	vector<char> cmds;
+    pthread_t threadID;
 };
 
 class Commander {
 	public:
-		int start(int port);
+		int start(char* file, int port);
 		void stop();
 		commander_data data;
 	private:

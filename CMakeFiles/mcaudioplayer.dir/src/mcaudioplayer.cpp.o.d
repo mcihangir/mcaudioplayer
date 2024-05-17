@@ -102,22 +102,10 @@ CMakeFiles/mcaudioplayer.dir/src/mcaudioplayer.cpp.o: \
  /usr/include/c++/5/bits/basic_ios.tcc \
  /usr/include/c++/5/bits/ostream.tcc /usr/include/c++/5/istream \
  /usr/include/c++/5/bits/istream.tcc \
- /home/quectel/Projects/mcaudioplayer/include/tcpserver.h \
- /usr/include/string.h /usr/include/unistd.h \
- /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /home/quectel/Projects/mcaudioplayer/include/commander.h \
+ /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
  /usr/include/x86_64-linux-gnu/bits/confname.h /usr/include/getopt.h \
- /usr/include/x86_64-linux-gnu/sys/socket.h \
- /usr/include/x86_64-linux-gnu/sys/uio.h \
- /usr/include/x86_64-linux-gnu/bits/uio.h \
- /usr/include/x86_64-linux-gnu/bits/socket.h \
- /usr/include/x86_64-linux-gnu/bits/socket_type.h \
- /usr/include/x86_64-linux-gnu/bits/sockaddr.h \
- /usr/include/x86_64-linux-gnu/asm/socket.h \
- /usr/include/asm-generic/socket.h \
- /usr/include/x86_64-linux-gnu/asm/sockios.h \
- /usr/include/asm-generic/sockios.h /usr/include/netinet/in.h \
- /usr/include/x86_64-linux-gnu/bits/in.h /usr/include/arpa/inet.h \
  /usr/include/c++/5/thread /usr/include/c++/5/chrono \
  /usr/include/c++/5/ratio /usr/include/c++/5/limits \
  /usr/include/c++/5/ctime /usr/include/c++/5/bits/parse_numbers.h \
@@ -137,14 +125,10 @@ CMakeFiles/mcaudioplayer.dir/src/mcaudioplayer.cpp.o: \
  /usr/include/c++/5/ext/aligned_buffer.h \
  /usr/include/c++/5/bits/shared_ptr_atomic.h \
  /usr/include/c++/5/bits/atomic_base.h \
- /usr/include/c++/5/backward/auto_ptr.h \
- /home/quectel/Projects/mcaudioplayer/include/commander.h \
- /usr/include/c++/5/vector /usr/include/c++/5/bits/stl_vector.h \
- /usr/include/c++/5/bits/stl_bvector.h /usr/include/c++/5/bits/vector.tcc \
- /usr/include/SFML/Network.hpp /usr/include/SFML/System.hpp \
- /usr/include/SFML/Config.hpp /usr/include/SFML/System/Clock.hpp \
- /usr/include/SFML/System/Export.hpp /usr/include/SFML/System/Time.hpp \
- /usr/include/SFML/System/Err.hpp \
+ /usr/include/c++/5/backward/auto_ptr.h /usr/include/SFML/Network.hpp \
+ /usr/include/SFML/System.hpp /usr/include/SFML/Config.hpp \
+ /usr/include/SFML/System/Clock.hpp /usr/include/SFML/System/Export.hpp \
+ /usr/include/SFML/System/Time.hpp /usr/include/SFML/System/Err.hpp \
  /usr/include/SFML/System/FileInputStream.hpp \
  /usr/include/SFML/System/InputStream.hpp \
  /usr/include/SFML/System/NonCopyable.hpp \
@@ -165,7 +149,9 @@ CMakeFiles/mcaudioplayer.dir/src/mcaudioplayer.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /usr/include/c++/5/bits/random.h \
+ /usr/include/c++/5/bits/random.h /usr/include/c++/5/vector \
+ /usr/include/c++/5/bits/stl_vector.h \
+ /usr/include/c++/5/bits/stl_bvector.h /usr/include/c++/5/bits/vector.tcc \
  /usr/include/c++/5/bits/uniform_int_dist.h \
  /usr/include/x86_64-linux-gnu/c++/5/bits/opt_random.h \
  /usr/lib/gcc/x86_64-linux-gnu/5/include/x86intrin.h \
@@ -267,4 +253,8 @@ CMakeFiles/mcaudioplayer.dir/src/mcaudioplayer.cpp.o: \
  /usr/include/SFML/Audio/SoundFileFactory.hpp \
  /usr/include/SFML/Audio/SoundFileFactory.inl \
  /usr/include/SFML/Audio/SoundFileReader.hpp \
- /usr/include/SFML/Audio/SoundFileWriter.hpp
+ /usr/include/SFML/Audio/SoundFileWriter.hpp /usr/include/termios.h \
+ /usr/include/x86_64-linux-gnu/bits/termios.h \
+ /usr/include/x86_64-linux-gnu/sys/ttydefaults.h \
+ /usr/include/SFML/Window/Keyboard.hpp \
+ /usr/include/SFML/Window/Export.hpp
