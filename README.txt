@@ -5,13 +5,14 @@ Installing SFML
 In case you installed SFML to a non-standard path, you'll need to tell the compiler where to find the SFML headers (.hpp files):
 If you installed SFML to a non-standard path, you'll need to tell the linker where to find the SFML libraries (.so files):
 Please edit CMakeLists.txt to add your sfml path as like below
-run "cmake ."
 
     # If the SFML is not installed in the standard path
     set(SFML_ROOT "/custom/path/to/sfml")
     # Add Include and library directories
     include_directories("${SFML_ROOT}/include")
     link_directories("${SFML_ROOT}/lib")
+
+run "cmake ."
 
 If you don't have cmake in your Linux Environment you can install it with the following commands:
     sudo apt-get update
