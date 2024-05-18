@@ -1,8 +1,8 @@
 1. Pre Requirements before compiling mcaudioplayer
-Installing SFML
+1.1. Installing SFML
     sudo apt-get install libsfml-dev
 
-In case you installed SFML to a non-standard path, you'll need to tell the compiler where to find the SFML headers (.hpp files):
+1.2. In case you installed SFML to a non-standard path, you'll need to tell the compiler where to find the SFML headers (.hpp files):
 If you installed SFML to a non-standard path, you'll need to tell the linker where to find the SFML libraries (.so files):
 Please edit CMakeLists.txt to add your sfml path as like below
 
@@ -12,18 +12,20 @@ Please edit CMakeLists.txt to add your sfml path as like below
     include_directories("${SFML_ROOT}/include")
     link_directories("${SFML_ROOT}/lib")
 
-If you don't have cmake in your Linux Environment, please install it with the following commands:
+1.3. If you don't have cmake in your Linux Environment, please install it with the following commands:
     sudo apt-get update
     sudo apt-get install cmake
 
-Build the mcaudioplayer
+------------------------------------------------------------------------------------------------------------------------
+
+2. Build the mcaudioplayer
 go to mcaudioplayer folder:
     cmake .
     make
 
 ------------------------------------------------------------------------------------------------------------------------
 
-2. Usage of mcaudioplayer
+3. Usage of mcaudioplayer
 Usage: ./mcaudioplayer auido_file [TCP port]
 [TCP port] is optional. If it is omitted, the listening port will be 55000
 
