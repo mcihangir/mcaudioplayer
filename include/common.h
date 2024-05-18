@@ -3,7 +3,7 @@
 #include <iostream>
 #include <cstdio>
 
-#define MC_DEBUG
+//#define MC_DEBUG
 
 #ifdef MC_DEBUG
     #define DEBUG_PRINT(fmt, ...) \
@@ -13,5 +13,3 @@
 #else
     #define DEBUG_PRINT(fmt, ...)
 #endif
-
-//fprintf(stdout, fmt "\n", ##__VA_ARGS__); \

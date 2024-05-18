@@ -12,9 +12,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <pthread.h>
-#include <thread>
-//#include <vector> 
-
 
 #include <SFML/Network.hpp>
 #include <SFML/Audio.hpp>
@@ -27,9 +24,10 @@ struct commander_data{
     sf::TcpSocket socket;
 	sf::SoundBuffer buffer;
 	sf::Sound sound;
+	pthread_t threadID;
 	int numClient;
 	char cmd;	
-    pthread_t threadID;
+    bool isOnline;
 };
 
 class Commander {

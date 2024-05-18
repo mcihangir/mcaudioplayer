@@ -1,1 +1,1 @@
-/usr/bin/c++ CMakeFiles/mcaudioplayer.dir/src/mcaudioplayer.cpp.o CMakeFiles/mcaudioplayer.dir/src/commander.cpp.o -o mcaudioplayer  -lpthread -lsfml-network -lsfml-audio -lsfml-window 
+/usr/bin/c++ CMakeFiles/mcaudioplayer.dir/src/mcaudioplayer.cpp.o CMakeFiles/mcaudioplayer.dir/src/commander.cpp.o -o mcaudioplayer  -lpthread -lsfml-network -lsfml-audio 
