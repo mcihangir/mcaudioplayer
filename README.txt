@@ -12,18 +12,12 @@ Please edit CMakeLists.txt to add your sfml path as like below
     include_directories("${SFML_ROOT}/include")
     link_directories("${SFML_ROOT}/lib")
 
-    run "cmake ."
-
-If you don't have cmake in your Linux Environment you can install it with the following commands:
+If you don't have cmake in your Linux Environment, please install it with the following commands:
     sudo apt-get update
     sudo apt-get install cmake
 
-
 Build the mcaudioplayer
 go to mcaudioplayer folder:
-    make
-
-In case if you change the CMakeLists.txt:
     cmake .
     make
 
